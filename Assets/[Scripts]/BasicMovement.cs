@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
+    public GameObject camera;
+    Rigidbody rigidbody;
+    public float speed = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(-0.1f, 0f, 0f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(0.1f, 0f, 0f);
+            rigidbody.AddForce(Vector3.forward * speed);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0f, 0f, -0.1f);
+            rigidbody.AddForce(Vector3.back * speed);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(0f, 0f, 0.1f);
+            rigidbody.AddForce(Vector3.left * speed);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rigidbody.AddForce(Vector3.right * speed);
         }
     }
 }
