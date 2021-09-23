@@ -30,4 +30,7 @@ public class BasicMovement : MonoBehaviour
             transform.Translate(0f, 0f, 0.1f);
         }
     }
+
+
+    // this is just a test commend by Jeffrey to test the gitkraken
 }
